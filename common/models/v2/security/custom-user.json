@@ -1,0 +1,10 @@
+{
+    "name": "CustomUser",
+    "options": {},
+    "http": {
+      "path": "v2/crud/user"
+    },
+    "properties": {},
+    "relations": {}
+  }
+  

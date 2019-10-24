@@ -1,0 +1,14 @@
+{
+    "name": "Test",
+    "base": "Model",
+    "options": {},
+    "http": {
+      "path": "v2/crud/test"
+    },
+    "properties": {},
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  
