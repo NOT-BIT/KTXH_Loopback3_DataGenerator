@@ -5,14 +5,16 @@ let app = require('../../../server/server')
 
 module.exports = function (ThisModel) {
   ThisModel.randomGenerateData = async function (amount) {
+    result = 0
     for (let i = 0; i < amount; i++) {
-      generator.generate(ThisModel)
+      result += await generator.generate(ThisModel)
     }
+    return result
   }
 
   ThisModel.remoteMethod('randomGenerateData',
     {
-      http: {path: 'generate', verb: 'post'},
+      http: {path: '/generate', verb: 'post'},
       accepts: [
         {arg: 'amount', type: 'Number', required: true}
       ],
