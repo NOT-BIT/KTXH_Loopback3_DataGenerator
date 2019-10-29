@@ -1,26 +1,21 @@
-let queryObject = require("../../../utils/query-object")
-let app = require("../../../../server/server")
+let generator = require('../../utils/generator')
+let app = require('../../../server/server')
 
-module.exports = function(Test) {
-    Test.test = async function () {
-        // model = await app.models.QTUsers_TacNhan
-        // relations = queryObject.listRelationsFilter(model)
-        // object = await model.findOne({where: {id: 1}, include: queryObject.listRelationsFilter})
-        // if (object) {
-        //     nobject = queryObject.listAPIReturns(model, object);
-        //     console.log(nobject)
-        // } else {
-        //     console.log("Can't find any object!")
-        // }
+'use_strict';
 
-        return queryObject.test();
+module.exports = function (ThisModel) {
+  ThisModel.randomGenerateData = async function (amount) {
+    for (let i = 0; i < amount; i++) {
+      generator.generate(ThisModel)
     }
+  }
 
-    Test.remoteMethod(
-        'test',
-        {
-            http: {path: '/test', verb: 'post'},
-            returns: {arg: "data"}
-        }
-    )
-}
+  ThisModel.remoteMethod('randomGenerateData',
+    {
+      http: {path: 'generate', verb: 'post'},
+      accepts: [
+        {arg: 'amount', type: 'Number', required: true}
+      ],
+      returns: {arg: 'amount', type: 'Number'}
+    })
+};

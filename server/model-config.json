@@ -4,6 +4,16 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
+      "../common/models/bieu_nhap_lieu",
+      "../common/models/chi_tieu",
+      "../common/models/data",
+      "../common/models/quan_ly",
+      "../common/models/quan_tri",
+      "../common/models/quy_chuan",
+      "../common/models/system",
+      "../common/models/truong_nhap_lieu",
+      "../common/models/security",
+      "../common/models/test",
       "./models"
     ],
     "mixins": [
@@ -12,5 +22,473 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "Test": {
+    "dataSource": null,
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": true
+        }
+      }
+    }
+  },
+
+  "CustomUser": {
+    "dataSource": null,
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false
+        }
+      }
+    }
+  },
+
+  "BieuNhapLieu_ChiTieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_DonViNhap": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_DonViTongHopCapHuyen": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_DonViTongHopCapTinh": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_DonViTongHop": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_KyBaoCao": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu_TruongNhapLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "BieuNhapLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "ChiTieuNhom": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "ChiTieuPhanToChiTiet": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "ChiTieuPhanTo": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "ChiTieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "DataDetail": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "DataMaster": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "DataStatus": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QLKyBaoCao": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTChucNangPhanMem": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTDonVi_DiaBan": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTDonVi": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTHopThuHoiDap": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QLNamLamViec": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTTacNhan_ChucNangPhanMem": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTTacNhan": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTUsers_TacNhan": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QTUsers": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QCDonViNhom": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QCHuyen": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QCTinh": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "QCXa": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysCapHanhChinh": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysDataStatus": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysKyBaoCao": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysLoaiBieuNhapLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysLoaiTruongNhapLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysNguonSoLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "SysTrangThaiDongMo": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
+  },
+  "TruongNhapLieu": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "randomGenerateData": true
+        }
+      }
+    }
   }
 }

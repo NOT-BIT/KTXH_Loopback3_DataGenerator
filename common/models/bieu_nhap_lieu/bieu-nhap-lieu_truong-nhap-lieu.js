@@ -1,142 +1,21 @@
-let customCRUD = require('../../../utils/custom-crud')
-let app = require('../../../../server/server')
+let generator = require('../../utils/generator')
+let app = require('../../../server/server')
 
 'use_strict';
 
 module.exports = function (ThisModel) {
-  //create Bieu Nhap Lieu Chi Tieu
-  ThisModel.customCreate = async function (uid, ma, ten, bieuNhapLieuId, truongNhapLieuId, ghiChu) {
-    const queryData = {
-      uid: uid,
-      ma: ma,
-      ten: ten,
-      bieuNhapLieuId: bieuNhapLieuId,
-      truongNhapLieuId: truongNhapLieuId,
-      ghiChu: ghiChu,
-      createdAt: new Date(),
-      createdBy: 0
+  ThisModel.randomGenerateData = async function (amount) {
+    for (let i = 0; i < amount; i++) {
+      generator.generate(ThisModel)
     }
-    return await customCRUD.create(ThisModel, queryData)
   }
 
-  //list Bieu Nhap Lieu Chi Tieu
-  ThisModel.customList = async function (queryData, page, pageSize) {
-    return await customCRUD.list(ThisModel, queryData, page, pageSize)
-  }
-
-  //list deleted Bieu Nhap Lieu Chi Tieu
-  ThisModel.customListDeleted = async function (queryData, page, pageSize) {
-    return await customCRUD.listDeleted(ThisModel, queryData, page, pageSize)
-  }
-
-  //read Bieu Nhap Lieu Chi Tieu
-  ThisModel.customRead = async function (id) {
-    return await customCRUD.read(ThisModel, id)
-  }
-
-  //update Bieu Nhap Lieu Chi Tieu
-  ThisModel.customUpdate = async function (id, ma, ten, bieuNhapLieuId, truongNhapLieuId, ghiChu, hieuLuc) {
-    const queryData = {
-      id: id,
-      ma: ma,
-      ten: ten,
-      bieuNhapLieuId: bieuNhapLieuId,
-      truongNhapLieuId: truongNhapLieuId,
-      ghiChu: ghiChu,
-      hieuLuc: hieuLuc,
-      updatedAt: new Date(),
-      updatedBy: 0
-    }
-    return await customCRUD.update(ThisModel, queryData)
-  }
-
-  //delete Bieu Nhap Lieu Chi Tieu 
-  ThisModel.customDelete = async function (id) {
-    return await customCRUD.delete(ThisModel, id)
-  }
-
-  // Restore Bieu Nhap Lieu Chi Tieu
-  ThisModel.customRestore = async function (id) {
-    return await customCRUD.restore(ThisModel, id)
-  }
-
-  ThisModel.remoteMethod('customCreate',
+  ThisModel.remoteMethod('randomGenerateData',
     {
-      http: { path: '/create', verb: 'post' },
+      http: {path: 'generate', verb: 'post'},
       accepts: [
-        { arg: 'uid', type: 'string', required: true },
-        { arg: 'ma', type: 'string', required: true },
-        { arg: 'ten', type: 'string' },
-        { arg: 'bieuNhapLieuId', type: 'number', required: true },
-        { arg: 'truongNhapLieuId', type: 'number', required: true },
-        { arg: 'ghiChu', type: 'string' }
+        {arg: 'amount', type: 'Number', required: true}
       ],
-      returns: {arg: 'data', type: 'object', root: true}
-    }
-  )
-
-  ThisModel.remoteMethod('customList',
-    {
-      http: { verb: 'post', path: '/list' },
-      accepts: [
-        { arg: 'queryData', type: 'object' },
-        { arg: 'page', type: 'number', default: '0' },
-        { arg: 'pageSize', type: 'number', default: '20' }],
-      returns: {arg: 'data', type: 'object', root: true}
+      returns: {arg: 'amount', type: 'Number'}
     })
-
-    ThisModel.remoteMethod('customListDeleted',
-    {
-      http: { verb: 'post', path: '/list_deleted' },
-      accepts: [
-        { arg: 'queryData', type: 'object' },
-        { arg: 'page', type: 'number', default: '0' },
-        { arg: 'pageSize', type: 'number', default: '20' }],
-      returns: {arg: 'data', type: 'object', root: true}
-    })
-
-  ThisModel.remoteMethod('customRead',
-    {
-      http: { path: '/read', verb: 'post' },
-      accepts: [
-        { arg: 'id', type: 'number', required: true }],
-      returns: {arg: 'data', type: 'object', root: true}
-    },
-  )
-
-  ThisModel.remoteMethod('customUpdate',
-    {
-      http: { path: '/update', verb: 'post' },
-      accepts: [
-        { arg: 'id', type: 'number', required: true },
-        { arg: 'ma', type: 'string' },
-        { arg: 'ten', type: 'string' },
-        { arg: 'bieuNhapLieuId', type: 'number' },
-        { arg: 'truongNhapLieuId', type: 'number' },
-        { arg: 'ghiChu', type: 'string' },
-        { arg: 'hieuLuc', type: 'boolean' }
-      ],
-      returns: {arg: 'data', type: 'object', root: true}
-    },
-  )
-
-  ThisModel.remoteMethod('customDelete',
-    {
-      http: { path: '/delete', verb: 'post' },
-      accepts: [
-        { arg: 'id', type: ['number'], required: true }
-      ],
-      returns: {arg: 'data', type: 'object', root: true}
-    },
-  )
-
-  ThisModel.remoteMethod('customRestore',
-    {
-      http: { path: '/restore', verb: 'post' },
-      accepts: [
-        { arg: 'id', type: ['number'], required: true }
-      ],
-      returns: {arg: 'data', type: 'object', root: true}
-    },
-  )
 };

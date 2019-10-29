@@ -1,1 +1,14 @@
-{}
+{
+    "mysql": {
+      "name": "mysql",
+      "host": "123.31.12.83",
+      "port": 3306,
+      "database": "ktxh_caphuyen",
+      "user": "root",
+      "password": "Not!Bit01",
+      "connector": "mysql",
+      "collation": "utf8mb4_unicode_ci",
+      "maxOfflineRequests": 2048
+    }
+  }
+  

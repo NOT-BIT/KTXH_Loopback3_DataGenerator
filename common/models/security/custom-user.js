@@ -1,29 +1,21 @@
-let app = require("../../../../server/server")
-let jwt = require("../../../utils/jwt")
+let generator = require('../../utils/generator')
+let app = require('../../../server/server')
 
-module.exports = function(CustomUser) {
-    CustomUser.login = async function (username, password) {
-        model = await app.models.QTUsers
-        user = await model.findOne({where: {ten: username, matKhau: password}})
-        if (!user) {
-            return null
-        } else {
-            return {'token': await jwt.generateToken({
-                id: user.id,
-                email: user.email
-            })}
-        }
+'use_strict';
+
+module.exports = function (ThisModel) {
+  ThisModel.randomGenerateData = async function (amount) {
+    for (let i = 0; i < amount; i++) {
+      generator.generate(ThisModel)
     }
+  }
 
-    CustomUser.remoteMethod(
-        'login',
-        {
-            http: {path: '/login', verb: 'post'},
-            accepts: [
-                {arg: 'username', type: 'string', required: 'true'},
-                {arg: 'password', type: 'string', required: 'true'}
-            ],
-            returns: {arg: 'authorization', type: 'object'}
-        }
-    )
-}
+  ThisModel.remoteMethod('randomGenerateData',
+    {
+      http: {path: 'generate', verb: 'post'},
+      accepts: [
+        {arg: 'amount', type: 'Number', required: true}
+      ],
+      returns: {arg: 'amount', type: 'Number'}
+    })
+};
