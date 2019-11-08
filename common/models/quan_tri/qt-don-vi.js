@@ -4,10 +4,11 @@ let app = require('../../../server/server')
 'use_strict';
 
 module.exports = function (ThisModel) {
+  threshold = 5
   ThisModel.randomGenerateData = async function (amount) {
     result = 0
     for (let i = 0; i < amount; i++) {
-      result += await generator.generate(ThisModel)
+      result += await generator.generate(ThisModel, threshold)
     }
     return result
   }

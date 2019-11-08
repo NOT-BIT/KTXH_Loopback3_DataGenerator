@@ -2,7 +2,7 @@ let app = require('../../server/server')
 let uuid = require('uuid/v1')
 let randomDate = require('random-datetime')
 
-async function generate(model) {
+async function generate(model, threshold) {
     let success = 0
 
     let settings = model.definition.settings || {}
@@ -47,14 +47,20 @@ async function generate(model) {
         foreignKeyName = relation.foreignKey
         foreignKey = properties[foreignKeyName]
 
-        threshold = 20
+        if (!threshold) {
+            threshold = 20
+        }
         if (foreignKey.required) {
             threshold = 0
         }
 
-        data[foreignKeyName]
-        = ((Math.floor(Math.random() * 100) + 1 > threshold) ? 1 : 0)
-        * referencedIdList[(Math.floor(Math.random() * referencedIdList.length))].id
+        if (referencedIdList.length != 0) {
+            data[foreignKeyName]
+            = ((Math.floor(Math.random() * 100) + 1 > threshold) ? 1 : 0)
+            * referencedIdList[(Math.floor(Math.random() * referencedIdList.length))].id
+        } else {
+            data[foreignKeyName] = 0
+        }
     }
 
     for (let i in propertyKeys) {
